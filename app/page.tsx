@@ -4,8 +4,24 @@ import React from 'react';
 import WebsitePreview from './components/WebsitePreview';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import TechBanner, { TechItem } from './components/TechBanner';
 
 export default function Home() {
+  const myTechnologies: TechItem[] = [
+    { name: "HTML", category: "Frontend" },
+    { name: "CSS", category: "Frontend" },
+    { name: "JavaScript", category: "Frontend" },
+    { name: "Next.js", category: "Frontend" },
+    { name: "Bootstrap CSS", category: "Frontend" },
+    { name: "Tailwind CSS", category: "Frontend" },
+    { name: "Node.js", category: "Backend" },
+    { name: "Express.js", category: "Backend" },
+    { name: "Python", category: "Backend" },
+    { name: "Django", category: "Backend" },
+    { name: "Supabase", category: "Backend" },
+    { name: "Alibaba Cloud", category: "Technologies" }
+  ];
+
   const portfolioItems = [
     {
       title: "MGC E-commerce Website",
@@ -13,7 +29,8 @@ export default function Home() {
       description: "A modern e-commerce interface with complete ordering capability. I pioneered the development of the production selling part of our organization.",
       techStack: ["Bootstrap", "JQuery", "Javascript", "Supabase"],
       contribution: "Full Stack",
-      isLive: true
+      isLive: true,
+      height: "h-96"
     },
     {
       title: "Pasig Onebiz",
@@ -22,7 +39,7 @@ export default function Home() {
       techStack: ["HTML", "CSS", "JavaScript", "Express.js", "Node.js"],
       contribution: "Full Stack",
       isLive: false,
-      statusText: "Archived"
+      statusText: "Archived (Front-end only hosted)"
     },
     {
       title: "TekoLingo",
@@ -31,7 +48,7 @@ export default function Home() {
       techStack: ["React Native", "Expo", "Django", "Alibaba Cloud: Qwen-Flash"],
       contribution: "Backend",
       isLive: false,
-      statusText: "Archived"
+      statusText: "Archived (Front-end only hosted)"
     }
     /*
     {
@@ -52,7 +69,7 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-white py-20 sm:py-20">
+        <section className="bg-white py-20 sm:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight">
               Welcome to my <span className="text-amber-600">Portfolio</span>
@@ -63,11 +80,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Tech Banner */}
+        <TechBanner technologies={myTechnologies} />
 
         {/* Portfolio Grid */}
         <section id="projects" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-10xl mx-auto">
               {portfolioItems.map((item, index) => (
                 <div key={index} className="flex flex-col">
                   <WebsitePreview

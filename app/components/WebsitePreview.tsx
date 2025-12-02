@@ -10,6 +10,7 @@ interface WebsitePreviewProps {
   contribution?: string;
   isLive?: boolean;
   statusText?: string;
+  height?: string;
 }
 
 /**
@@ -17,7 +18,15 @@ interface WebsitePreviewProps {
  * to simulate a desktop browser view for portfolio presentation.
  * It includes a warning about common cross-origin embedding issues.
  */
-const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, contribution, isLive = true, statusText }) => {
+const WebsitePreview: React.FC<WebsitePreviewProps> = ({
+  url,
+  title,
+  techStack,
+  contribution,
+  isLive = true,
+  statusText,
+  height = "h-80 sm:h-96"
+}) => {
   const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const iframeKey = url; // Use URL as key to force remount/reload when URL changes
@@ -36,7 +45,7 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
   return (
     <div className="bg-white p-4 sm:p-6 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-3xl border border-gray-100 w-full group">
       <div className="flex justify-between items-start mb-3">
-        <h2 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">{title}</h2>
+        <h2 className="text-2xl font-bold text-gray-800 group-hover:text-amber-600 transition-colors">{title}</h2>
         {contribution && (
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">
             My Contribution: {contribution}
@@ -45,9 +54,9 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
       </div>
 
       {/* Browser Frame Container */}
-      <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg border-b-4 border-gray-900 mb-4 w-full h-80 sm:h-96 relative ring-1 ring-gray-900/5">
+      <div className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg border-b-4 border-gray-900 mb-4 w-full ${height} relative ring-1 ring-gray-900/5 flex flex-col`}>
         {/* Browser Top Bar */}
-        <div className="flex items-center p-3 border-b border-gray-700 bg-gray-800">
+        <div className="flex items-center p-3 border-b border-gray-700 bg-gray-800 shrink-0">
           <div className="flex space-x-2 mr-4">
             <span className="w-3 h-3 bg-red-500 rounded-full"></span>
             <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -55,17 +64,17 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
           </div>
           <div className="flex-1 bg-gray-900/50 text-xs text-gray-400 px-3 py-1.5 rounded-md truncate flex justify-between items-center font-mono">
             {url}
-            <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 ml-2 transition-colors" title="Open in new tab">
+            <a href={url} target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 ml-2 transition-colors" title="Open in new tab">
               <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
 
         {/* Iframe Content Area */}
-        <div className="w-full h-full relative bg-white">
+        <div className="w-full flex-1 relative bg-white">
           {isIframeLoading && (
             <div className="absolute inset-0 bg-gray-50 flex flex-col items-center justify-center z-10">
-              <RefreshCw className="w-8 h-8 text-blue-500 animate-spin mb-3" />
+              <RefreshCw className="w-8 h-8 text-amber-500 animate-spin mb-3" />
               <p className="text-gray-500 font-medium animate-pulse">Loading preview...</p>
             </div>
           )}
@@ -84,7 +93,7 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
               key={iframeKey}
               src={url}
               title={`Preview of ${title}`}
-              className="w-full h-full border-0"
+              className="w-[150%] h-[150%] border-0 origin-top-left scale-[0.6667]"
               onLoad={handleIframeLoad}
               onError={handleIframeError}
             />
@@ -96,7 +105,7 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
       {techStack && techStack.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">
           {techStack.map((tech, index) => (
-            <span key={index} className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+            <span key={index} className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-100">
               {tech}
             </span>
           ))}
@@ -109,7 +118,7 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
           <div className={`w-2 h-2 rounded-full mr-2 ${isLive ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
           {isLive ? 'Live Project' : (statusText || 'Not Live')}
         </div>
-        <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group-hover:underline">
+        <a href={url} target="_blank" rel="noopener noreferrer" className="text-amber-600 hover:text-amber-800 font-medium inline-flex items-center group-hover:underline">
           Visit Site <ArrowUpRight size={14} className="ml-1" />
         </a>
       </div>
