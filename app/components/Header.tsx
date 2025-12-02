@@ -16,15 +16,15 @@ const Header = () => {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
+                        <a href="https://github.com/nomorepinto" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 transition-colors">
                             <Github size={20} />
                             <span className="sr-only">GitHub</span>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors">
+                        <a href="https://www.linkedin.com/in/jedrick-ocenar-18765b206/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-700 transition-colors">
                             <Linkedin size={20} />
                             <span className="sr-only">LinkedIn</span>
                         </a>
-                        <a href="mailto:hello@example.com" className="text-gray-500 hover:text-red-500 transition-colors">
+                        <a href="mailto:bilogdino071@gmail.com" className="text-gray-500 hover:text-red-500 transition-colors">
                             <Mail size={20} />
                             <span className="sr-only">Email</span>
                         </a>

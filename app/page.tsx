@@ -75,8 +75,7 @@ export default function Home() {
               Welcome to my <span className="text-amber-600">Portfolio</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-              I'm Jedrick Ocenar, a passionate developer creating modern, responsive, and user-friendly web applications. Check out my latest work below. </p>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10">Most of these are past projects from hackathons with unsupported backends.</p>
+              I'm Jedrick Ocenar, an aspiring web developer. Check out my latest work below. Most of these are past projects from hackathons with unsupported backends.</p>
           </div>
         </section>
 
