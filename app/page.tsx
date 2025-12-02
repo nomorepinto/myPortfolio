@@ -19,7 +19,8 @@ export default function Home() {
     { name: "Python", category: "Backend" },
     { name: "Django", category: "Backend" },
     { name: "Supabase", category: "Backend" },
-    { name: "Alibaba Cloud", category: "Technologies" }
+    { name: "Alibaba Cloud", category: "Technologies" },
+    { name: "Git", category: "Technologies" }
   ];
 
   const portfolioItems = [
