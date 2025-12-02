@@ -8,6 +8,8 @@ interface WebsitePreviewProps {
   title: string;
   techStack?: string[];
   contribution?: string;
+  isLive?: boolean;
+  statusText?: string;
 }
 
 /**
@@ -15,7 +17,7 @@ interface WebsitePreviewProps {
  * to simulate a desktop browser view for portfolio presentation.
  * It includes a warning about common cross-origin embedding issues.
  */
-const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, contribution }) => {
+const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, contribution, isLive = true, statusText }) => {
   const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const iframeKey = url; // Use URL as key to force remount/reload when URL changes
@@ -37,7 +39,7 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
         <h2 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">{title}</h2>
         {contribution && (
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">
-            {contribution}
+            My Contribution: {contribution}
           </span>
         )}
       </div>
@@ -104,8 +106,8 @@ const WebsitePreview: React.FC<WebsitePreviewProps> = ({ url, title, techStack, 
       {/* Footer / Status */}
       <div className="flex items-center justify-between text-sm text-gray-500">
         <div className="flex items-center">
-          <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
-          Live Project
+          <div className={`w-2 h-2 rounded-full mr-2 ${isLive ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+          {isLive ? 'Live Project' : (statusText || 'Not Live')}
         </div>
         <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group-hover:underline">
           Visit Site <ArrowUpRight size={14} className="ml-1" />

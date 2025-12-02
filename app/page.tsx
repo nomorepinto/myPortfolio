@@ -11,26 +11,39 @@ export default function Home() {
       title: "MGC E-commerce Website",
       url: "https://mgc-ecom-website.vercel.app/", // REPLACE WITH YOUR PROJECT URL
       description: "A modern e-commerce interface with complete ordering capability. I pioneered the development of the production selling part of our organization.",
-      techStack: ["Bootstrap", "JQuery", "Javascript", "Supabase"]
+      techStack: ["Bootstrap", "JQuery", "Javascript", "Supabase"],
+      contribution: "Full Stack",
+      isLive: true
     },
     {
-      title: "My Static Landing Page",
-      url: "https://example.com/", // REPLACE WITH YOUR PROJECT URL
-      description: "A high-conversion landing page optimized for performance and SEO.",
-      techStack: ["HTML", "CSS", "JavaScript"]
+      title: "Pasig Onebiz",
+      url: "https://pasig-onebiz.vercel.app/", // REPLACE WITH YOUR PROJECT URL
+      description: "A modern solution to long process needed to procure business permits in the Philippines, narrowed down to Pasig City for scope.",
+      techStack: ["HTML", "CSS", "JavaScript", "Express.js", "Node.js"],
+      contribution: "Full Stack",
+      isLive: false,
+      statusText: "Archived"
     },
     {
-      title: "A Simple Calculator App",
-      url: "https://www.bing.com/", // REPLACE WITH YOUR PROJECT URL (Note: Bing often blocks embedding)
-      description: "A functional calculator built with React and TypeScript.",
-      techStack: ["React", "TypeScript", "Vite"]
-    },
+      title: "TekoLingo",
+      url: "https://tekolingofrontend.vercel.app/", // REPLACE WITH YOUR PROJECT URL (Note: Bing often blocks embedding)
+      description: "Tekolingo is an AI-enhanced cybersecurity LMS Integration, utilizing Qwen AI for adaptive text lessons and gamified scam simulations, to empower children and seniors against manipulation and online threats.",
+      techStack: ["React Native", "Expo", "Django", "Alibaba Cloud: Qwen-Flash"],
+      contribution: "Backend",
+      isLive: false,
+      statusText: "Archived"
+    }
+    /*
     {
       title: "E-commerce Storefront",
       url: "https://store.google.com/", // REPLACE WITH YOUR PROJECT URL
       description: "A modern e-commerce interface with cart functionality.",
-      techStack: ["Vue.js", "Nuxt", "Pinia"]
+      techStack: ["Vue.js", "Nuxt", "Pinia"],
+      contribution: "Frontend",
+      isLive: false,
+      statusText: "Under Maintenance"
     }
+    */
   ];
 
   return (
@@ -57,7 +70,14 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
               {portfolioItems.map((item, index) => (
                 <div key={index} className="flex flex-col">
-                  <WebsitePreview url={item.url} title={item.title} techStack={item.techStack} />
+                  <WebsitePreview
+                    url={item.url}
+                    title={item.title}
+                    techStack={item.techStack}
+                    contribution={item.contribution}
+                    isLive={item.isLive}
+                    statusText={item.statusText}
+                  />
                   <div className="mt-4 px-2">
                     <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
                     <p className="text-gray-600 mt-1">{item.description}</p>
