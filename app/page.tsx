@@ -26,7 +26,7 @@ export default function Home() {
     {
       title: "MGC E-commerce Website",
       url: "https://mgc-ecom-website.vercel.app/", // REPLACE WITH YOUR PROJECT URL
-      description: "A modern e-commerce interface with complete ordering capability. I pioneered the development of the production selling part of our organization.",
+      description: "A modern e-commerce interface with complete ordering capabilities. I pioneered the development of the product selling part of our organization.",
       techStack: ["Bootstrap", "JQuery", "Javascript", "Supabase"],
       contribution: "Full Stack",
       isLive: true,
@@ -35,7 +35,7 @@ export default function Home() {
     {
       title: "Pasig Onebiz",
       url: "https://pasig-onebiz.vercel.app/", // REPLACE WITH YOUR PROJECT URL
-      description: "A modern solution to long process needed to procure business permits in the Philippines, narrowed down to Pasig City for scope.",
+      description: "A modern solution to long process needed to procure business permits in the Philippines, narrowed down to Pasig City for scope with AI OCR ID recognition for faster input of data.",
       techStack: ["HTML", "CSS", "JavaScript", "Express.js", "Node.js"],
       contribution: "Full Stack",
       isLive: false,
@@ -44,7 +44,7 @@ export default function Home() {
     {
       title: "TekoLingo",
       url: "https://tekolingofrontend.vercel.app/", // REPLACE WITH YOUR PROJECT URL (Note: Bing often blocks embedding)
-      description: "Tekolingo is an AI-enhanced cybersecurity LMS Integration, utilizing Qwen AI for adaptive text lessons and gamified scam simulations, to empower children and seniors against manipulation and online threats.",
+      description: "An AI-enhanced cybersecurity LMS Integration, utilizing Qwen AI for adaptive text lessons and gamified scam simulations, to empower children and seniors against manipulation and online threats.",
       techStack: ["React Native", "Expo", "Django", "Alibaba Cloud: Qwen-Flash"],
       contribution: "Backend",
       isLive: false,
